@@ -5,6 +5,7 @@ from pages.resultpage import ResultPage
 from pages.productpage import ProductPage
 from utils import utils as utils
 
+
 class TestCheckout():
 
     @pytest.fixture(scope="class")
@@ -19,15 +20,15 @@ class TestCheckout():
         print("Test completed")
 
     def test_checkout(self, test_setup):
-        try:
-            driver.get(utils.URL)
-            HomePage(driver).user_input_and_click_search(utils.SEARCH_INPUT)
-            ResultPage(driver).user_select_first_product()
-            ProductPage(driver).user_click_add_to_cart()
-            ProductPage(driver).user_login(utils.USERNAME, utils.PASSWORD)
+        # try:
+        driver.get(utils.URL)
+        HomePage(driver).user_input_and_click_search(utils.SEARCH_INPUT)
+        ResultPage(driver).user_select_first_product()
+        ProductPage(driver).user_click_add_to_cart()
+        ProductPage(driver).user_login(utils.USERNAME, utils.PASSWORD)
+        # CheckoutModal(driver).user_click_checkout_button()         --- commented out due to not able to bypass login
 
-            self.assertTrue(True)
-        except:
-            print("Test failed!")
+        # except:
+        #     print("Test failed!: ")
 
 

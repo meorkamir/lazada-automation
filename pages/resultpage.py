@@ -9,7 +9,7 @@ class ResultPage():
         self.product_grouping_card = "//div[@data-qa-locator='product-item']"
 
     def wait_resultpage_load(self):
-        Wait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, self.product_grouping_card)))
+        Wait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH, self.product_grouping_card)))
 
     def select_first_product(self):
         self.driver.find_element_by_xpath(self.product_grouping_card).click()
